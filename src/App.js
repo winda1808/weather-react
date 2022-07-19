@@ -32,7 +32,11 @@ function App() {
         alt="weather-icon"
       />
       <div className="Main">
-        25 <span className="Units">°C|°F</span>
+        25 <span className="Units">
+          <span className = "Active">°C</span>
+          <span className = "Passive">|°F
+          </span>
+          </span>
       </div>
       <div className="Description">Cloudy</div>
       <div className="Other">
@@ -40,7 +44,7 @@ function App() {
         <span className="Wind">5 km/h</span>
       </div>
       <div className="Forecast-daily"></div>
-      <a className="Repository" href="https://github.com/winda1808/weather-app">
+      <a className="Repository" href="https://github.com/winda1808/weather-react">
         Open Source Code by Winda Andhini
       </a>
         <a
