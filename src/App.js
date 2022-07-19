@@ -41,8 +41,7 @@ function App() {
       </div>
       <div className="Forecast-daily"></div>
       <a className="Repository" href="https://github.com/winda1808/weather-app">
-        Open Source Code
-      <span> by Winda Andhini</span>
+        Open Source Code by Winda Andhini
       </a>
         <a
           className="Instagram-link"
