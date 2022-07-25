@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import './Weather.css';
 
-export default function Weather() {
+export default function Weather(props) {
 
     const [temperature, setTemperature] = useState(null);
-    const [city, setCity] = useState(null);
+    const [city, setCity] = (props.defaultCity);
     const [shown, setShown] = useState(false);
-    const form =
+    let form =
     <form onSubmit={handleSubmit}>
-    <div className="form-group has-feedback">
+    <div className=" Search form-group has-feedback">
       <div className="input-group">
         <input
           type="search"
@@ -27,6 +27,7 @@ export default function Weather() {
     </form>
 
     function updateCity(event) {
+        event.preventDefault ();
      setCity(event.target.value);
       }
 
@@ -43,9 +44,7 @@ export default function Weather() {
   if (shown) {
     return (
         <div className="Weather">
-        <div>
        {form}
-       </div>
        <h2 className="City-name">{city}</h2>
        <h3 className="Date">Last Updated : Tue 13.13</h3>
        <img
