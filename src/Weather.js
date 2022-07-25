@@ -48,7 +48,7 @@ export default function Weather(props) {
        <h2 className="City-name">{city}</h2>
        <h3 className="Date">Last Updated : Tue 13.13</h3>
        <img
-         src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+         src="./02d.png"
          className="Img"
          width="180px"
          alt="weather-icon"
