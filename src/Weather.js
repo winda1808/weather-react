@@ -5,7 +5,7 @@ import './Weather.css';
 export default function Weather(props) {
 
     const [temperature, setTemperature] = useState(null);
-    const [city, setCity] = (props.defaultCity);
+    const [city, setCity] = useState(props.defaultCity);
     const [shown, setShown] = useState(false);
     let form =
     <form onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ export default function Weather(props) {
          alt="weather-icon"
        />
        <div className="Main">
-         {temperature} 
+         {Math.round(temperature.temperature)} 
          <span className="Units">
            <span className = "Active">°C</span>
            <span className = "Passive">|°F</span>
