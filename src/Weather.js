@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './Weather.css';
+import FormattedDate from "./FormattedDate";
 
 export default function Weather(props) {
 
@@ -33,12 +34,12 @@ export default function Weather(props) {
 
   function handleSubmit(response) {
     setTemperature({
-      ready: true,
+        ready: true,
         temperature: response.data.main.temp,
         description: response.data.weather[0].description,
         humidity: response.data.main.humidity,
         wind: response.data.wind.speed,
-        date: "Tue 13.13",
+        date: new Date(response.data.dt * 1000),
         icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
       });
    
@@ -49,7 +50,9 @@ export default function Weather(props) {
         <div className="Weather">
        {form}
        <h2 className="City-name">{city}</h2>
-       <h3 className="Date">Last Updated : {temperature.date}</h3>
+       <h3 className="Date">
+       <FormattedDate date={temperature.date} />
+       </h3>
        <img
          src={temperature.icon}
          className="Img"
@@ -72,7 +75,7 @@ export default function Weather(props) {
     );
   } else {
 
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ae7a846b3048f734526a71e1a47e2b4b&units=metric`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=ae7a846b3048f734526a71e1a47e2b4b&units=metric`;
     axios.get(url).then(handleSubmit);
 
     return form;
