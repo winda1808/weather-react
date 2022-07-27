@@ -50,17 +50,6 @@ h3,
   cursor: pointer;
 }
 
-.App {
-  max-width: 600px;
-  max-height: 600px;
-  background: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
-  margin: 0 auto;
-  display: block;
-  margin-top: 30px;
-  padding: 10px 20px;
-  border-radius: 30px;
-}
-
 .Forecast-daily {
   text-align: center;
   padding: 10px;

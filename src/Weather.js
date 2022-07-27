@@ -16,6 +16,7 @@ export default function Weather(props) {
           type="search"
           onChange={updateCity}
           className="form-control"
+          autoFocus="on"
           placeholder="Search City"
         />
         <span className="input-group-btn">
@@ -28,28 +29,39 @@ export default function Weather(props) {
     </form>
 
     function updateCity(event) {
-        event.preventDefault ();
      setCity(event.target.value);
       }
 
-  function handleSubmit(response) {
+  function showTemperature(response) {
     setTemperature({
         ready: true,
         temperature: response.data.main.temp,
+        city: response.data.name,
         description: response.data.weather[0].description,
         humidity: response.data.main.humidity,
         wind: response.data.wind.speed,
         date: new Date(response.data.dt * 1000),
         icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
       });
-   
   }
+
+
+function search() {
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ae7a846b3048f734526a71e1a47e2b4b&units=metric`;
+    axios.get(url).then(showTemperature);
+
+}
+
+function handleSubmit(event) {
+  event.preventDefault ();
+  search ();
+}
 
   if (temperature.ready) {
     return (
         <div className="Weather">
        {form}
-       <h2 className="City-name">{city}</h2>
+       <h2 className="City-name text-uppercase">{temperature.city}</h2>
        <h3 className="Date">
        <FormattedDate date={temperature.date} />
        </h3>
@@ -68,16 +80,14 @@ export default function Weather(props) {
        </div>
        <div className="Description">{temperature.description}</div>
        <div className="Other">
-         <span className="Humidity">{temperature.humidity}</span>
-         <span className="Wind">{temperature.wind} km/h</span>
+         <span className="Humidity">Humidity: {temperature.humidity}%</span>
+         {" "} 
+         <span className="Wind"> Wind: {Math.round(temperature.wind)}km/h</span>
        </div>
        </div>
     );
   } else {
-
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=ae7a846b3048f734526a71e1a47e2b4b&units=metric`;
-    axios.get(url).then(handleSubmit);
-
+    search ();
     return form;
   }
 }

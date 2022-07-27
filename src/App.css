@@ -1,3 +1,14 @@
+.App {
+  max-width: 600px;
+  max-height: 600px;
+  background: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
+  margin: 0 auto;
+  display: block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
 .Github {
   margin: 0 auto;
   margin-top: 4%;
@@ -15,6 +26,7 @@
 }
 
 .Repository {
+  margin-top: 20px;
   text-decoration: none;
   font-weight: bold;
   color: #2b2658;
@@ -30,5 +42,5 @@
   font-size: x-small;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding-bottom: 20px;
 }
