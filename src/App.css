@@ -1,14 +1,12 @@
 .App {
   width: 500px;
   height: 500px;
-  background:rgba(255, 255, 255, .15);
-  backdrop-filter: blur(5px); 
+  background: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
   margin: 0 auto;
   display: block;
   margin-top: 30px;
   padding: 10px 20px;
   border-radius: 30px;
-  border: outset 11px #bec2dd;
 }
 
 .Github {
@@ -30,6 +28,7 @@
 .Repository {
   margin-top: 50px;
   text-decoration: none;
+  font-weight: bold;
   color: #2b2658;
   font-size: 11px;
   display: flex;
@@ -39,10 +38,8 @@
 .Repository:hover {
   margin-top: 50px;
   text-decoration: none;
+  font-weight: bold;
   color: #7f85bc;
-  font-size: 11px;
-  display: flex;
-  justify-content: center;
 }
 
 .Instagram-link {
@@ -60,8 +57,4 @@
   text-decoration: none;
   font-weight: bold;
   color: #7f85bc;
-  font-size: 10px;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 20px;
 }
