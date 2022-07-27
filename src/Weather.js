@@ -4,9 +4,9 @@ import './Weather.css';
 
 export default function Weather(props) {
 
-    const [temperature, setTemperature] = useState(null);
+    const [temperature, setTemperature] = useState({ready: false});
     const [city, setCity] = useState(props.defaultCity);
-    const [shown, setShown] = useState(false);
+  
     let form =
     <form onSubmit={handleSubmit}>
     <div className=" Search form-group has-feedback">
@@ -33,25 +33,28 @@ export default function Weather(props) {
 
   function handleSubmit(response) {
     setTemperature({
+      ready: true,
         temperature: response.data.main.temp,
         description: response.data.weather[0].description,
         humidity: response.data.main.humidity,
-        wind: response.data.wind.speed
+        wind: response.data.wind.speed,
+        date: "Tue 13.13",
+        icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
       });
-    setShown(true);
+   
   }
 
-  if (shown) {
+  if (temperature.ready) {
     return (
         <div className="Weather">
        {form}
        <h2 className="City-name">{city}</h2>
-       <h3 className="Date">Last Updated : Tue 13.13</h3>
+       <h3 className="Date">Last Updated : {temperature.date}</h3>
        <img
-         src="./02d.png"
+         src={temperature.icon}
          className="Img"
          width="180px"
-         alt="weather-icon"
+         alt={temperature.description}
        />
        <div className="Main">
          {Math.round(temperature.temperature)} 
