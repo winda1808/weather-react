@@ -3,6 +3,7 @@ import axios from "axios";
 import './Weather.css';
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherUnits from "./WeatherUnits";
 
 export default function Weather(props) {
 
@@ -69,13 +70,7 @@ function handleSubmit(event) {
        <div className="Img">
        <WeatherIcon code={temperature.icon} alt={temperature.description}/>
        </div>
-       <div className="Main">
-         {Math.round(temperature.temperature)} 
-         <span className="Units">
-           <span className = "Active">°C</span>
-           <span className = "Passive">|°F</span>
-           </span>
-       </div>
+        <WeatherUnits celsius={temperature.temperature} />
        <div className="Description">{temperature.description}</div>
        <div className="Other">
          <span className="Humidity">Humidity: {temperature.humidity}%</span>
