@@ -44,7 +44,7 @@ h3,
   color: #2b2658;
 }
 
-.Active {
+.Active a {
   color: #2b2658;
   cursor: default;
   text-decoration: none;
@@ -71,8 +71,8 @@ h3,
 .Main {
   font-size: 80px;
   position: absolute;
-  top: 38%;
-  left: 42%;
+  top: 40%;
+  left: 40%;
   font-weight: bolder;
   color: #2b2658;
   text-align: center;
