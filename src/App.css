@@ -1,6 +1,6 @@
 .App {
-  max-width: 600px;
-  max-height: 600px;
+  width: 500px;
+  height: 500px;
   background: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
   margin: 0 auto;
   display: block;
@@ -35,6 +35,13 @@
   justify-content: center;
 }
 
+.Repository:hover {
+  margin-top: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #7f85bc;
+}
+
 .Instagram-link {
   text-decoration: none;
   font-weight: bold;
@@ -43,4 +50,11 @@
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
+}
+
+
+.Instagram-link:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: #7f85bc;
 }
