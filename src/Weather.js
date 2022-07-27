@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import './Weather.css';
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Weather(props) {
 
@@ -41,7 +42,7 @@ export default function Weather(props) {
         humidity: response.data.main.humidity,
         wind: response.data.wind.speed,
         date: new Date(response.data.dt * 1000),
-        icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+        icon: response.data.weather[0].icon
       });
   }
 
@@ -65,12 +66,9 @@ function handleSubmit(event) {
        <h3 className="Date">
        <FormattedDate date={temperature.date} />
        </h3>
-       <img
-         src={temperature.icon}
-         className="Img"
-         width="180px"
-         alt={temperature.description}
-       />
+       <div className="Img">
+       <WeatherIcon code={temperature.icon} alt={temperature.description}/>
+       </div>
        <div className="Main">
          {Math.round(temperature.temperature)} 
          <span className="Units">
