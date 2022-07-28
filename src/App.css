@@ -28,24 +28,22 @@
 .Repository {
   margin-top: 50px;
   text-decoration: none;
-  font-weight: bold;
-  color: #2b2658;
+  font-weight: 300;
+  color: white;
   font-size: 11px;
   display: flex;
   justify-content: center;
 }
 
 .Repository:hover {
-  margin-top: 50px;
   text-decoration: none;
-  font-weight: bold;
   color: #7f85bc;
 }
 
 .Instagram-link {
   text-decoration: none;
-  font-weight: bold;
-  color: #2b2658;
+  font-weight: 300;
+  color: white;
   font-size: 10px;
   display: flex;
   justify-content: center;
@@ -54,7 +52,5 @@
 
 
 .Instagram-link:hover {
-  text-decoration: none;
-  font-weight: bold;
   color: #7f85bc;
 }
