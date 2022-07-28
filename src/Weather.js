@@ -37,6 +37,7 @@ export default function Weather(props) {
   function showTemperature(response) {
     setTemperature({
         ready: true,
+        coord: response.data.coord,
         temperature: response.data.main.temp,
         city: response.data.name,
         description: response.data.weather[0].description,
@@ -68,7 +69,7 @@ function handleSubmit(event) {
        <FormattedDate date={temperature.date} />
        </h3>
        <div className="Img">
-       <WeatherIcon code={temperature.icon} alt={temperature.description}/>
+       <WeatherIcon code={temperature.icon} alt={temperature.description} size={140} color="#bdc2e8"/>
        </div>
         <WeatherUnits celsius={temperature.temperature} />
        <div className="Description">{temperature.description}</div>
@@ -77,6 +78,7 @@ function handleSubmit(event) {
          {" "} 
          <span className="Wind"> Wind: {Math.round(temperature.wind)}km/h</span>
        </div>
+       <Forecast coord={temperature.coord}/>
        </div>
     );
   } else {
