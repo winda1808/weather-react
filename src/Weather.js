@@ -4,6 +4,7 @@ import './Weather.css';
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherUnits from "./WeatherUnits";
+import Forecast from './Forecast';
 
 export default function Weather(props) {
 
@@ -78,7 +79,7 @@ function handleSubmit(event) {
          {" "} 
          <span className="Wind"> Wind: {Math.round(temperature.wind)}km/h</span>
        </div>
-       <Forecast coord={temperature.coord}/>
+       <Forecast coord={temperature.coord} />
        </div>
     );
   } else {
